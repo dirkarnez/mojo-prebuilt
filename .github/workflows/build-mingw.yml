@@ -73,7 +73,7 @@ jobs:
             cd mojo &&^
             dir &&^
             gn gen --args="is_debug=false target_cpu=\"x64\"" out/Default &&^
-            autoninja -C out\Default chrome
+            start "" autoninja -C out\Default mojo & timeout /t 21000 & taskkill /im autoninja.exe /f
             
       - name: Archive Release
         uses: thedoctor0/zip-release@master
